@@ -8,6 +8,9 @@ using Android;
 using Android.Content;
 using Xamarin.Forms;
 using GarageApp.Interface;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace GarageApp.Droid
 {
@@ -25,6 +28,8 @@ namespace GarageApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("c12a47f9-1f7e-4c6a-be0d-0c5f4b1c24ba",
+                   typeof(Analytics), typeof(Crashes));
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
